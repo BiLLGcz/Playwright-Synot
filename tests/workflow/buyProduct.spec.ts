@@ -8,16 +8,16 @@ test('Product purchase', { tag: '@smoke' }, async ({ login, page, productsPage, 
 
   let itemName: string;
   let itemPrice: string;
-  const selectedItem = 2;
+  const testedItem = 2;
 
   await test.step('Login', async() => {
     await login(page);
   });
 
   await test.step('Add third item in to the cart', async() => {
-    itemName = await productsPage.itemName.nth(selectedItem).innerText();
-    itemPrice = await productsPage.itemPrice.nth(selectedItem).innerText();
-    await productsPage.buttonAddToCart.nth(selectedItem).click();
+    itemName = await productsPage.itemName.nth(testedItem).innerText();
+    itemPrice = await productsPage.itemPrice.nth(testedItem).innerText();
+    await productsPage.buttonAddToCart.nth(testedItem).click();
   });
 
   await test.step('The number 1 is displayed on the cart icon', async() => {

@@ -1,5 +1,5 @@
 import test, { expect } from '../../fixtures/main';
-import { users, passwords } from '../../fixtures/userData';
+import { users } from '../../fixtures/userData';
 
 const userList = [users.standardUser, users.problemUser, users.performanceUser, users.errorUser, users.visualUser];
 
@@ -11,7 +11,7 @@ userList.forEach((user) => {
     });
 
     await test.step('Login', async() => {
-      await login(page, `${user}`, `${passwords.validPassword}`);
+      await login(page, `${user}`);
     });
 
     await test.step('Check the login', async() => {

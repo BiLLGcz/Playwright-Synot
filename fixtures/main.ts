@@ -4,6 +4,7 @@ import { login, logout } from './basic';
 import { NavigationBar } from '../page-objects/sections/navigationBar';
 import { ProductsPage } from '../page-objects/pages/productsPage';
 import { CartPage } from '../page-objects/pages/cartPage';
+import { ProductDetailPage } from '../page-objects/pages/productDetailPage';
 
 
 const test = baseTest.extend<{
@@ -13,6 +14,7 @@ const test = baseTest.extend<{
   navigationBar: NavigationBar;
   productsPage: ProductsPage;
   cartPage: CartPage;
+  productDetailPage: ProductDetailPage;
   
 
 }>({
@@ -38,6 +40,10 @@ const test = baseTest.extend<{
 
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));  
+  },
+
+  productDetailPage: async ({ page }, use) => {
+    await use(new ProductDetailPage(page));  
   }
 
 });
